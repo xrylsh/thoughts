@@ -174,7 +174,6 @@ function loadFloatingThoughts() {
     });
 }
 
-loadFloatingThoughts();
 
 function createFloatingThought(text, index) {
 
