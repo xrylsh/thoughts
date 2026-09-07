@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UNSAID</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- HOME -->
+        <section id="home">
+
+            <h1>UNSAID</h1>
+
+            <p class="tagline">
+                Words you couldn't say.<br>
+                Songs that said them for you.
+            </p>
+
+            <button id="startButton">
+                Write your thought
+            </button>
+
+        </section>
+
+
+        <!-- WRITE THOUGHT -->
+        <section id="writePage" class="hidden">
+
+            <h2>What's on your mind?</h2>
+
+            <p class="subtitle">
+                Write the words you've never said.
+            </p>
+
+            <textarea
+                id="thought"
+                maxlength="500"
+                placeholder="I never told you that..."
+            ></textarea>
+
+            <p id="counter">0 / 500</p>
+
+<!--Music Selection-->
+            <h3>Choose a feeling</h3>
+
+            <div class="feelings">
+
+                <button class="feeling"> missing</button>
+
+                <button class="feeling"> mysb</button>
+
+                <button class="feeling"> can we try again?</button>
+
+                <button class="feeling"> regret</button>
+
+                <button class="feeling"> love</button>
+
+                <button class="feeling"> closure</button>
+
+                <button class="feeling"> hope</button>
+
+            </div>
+
+
+         <h3>Choose your song</h3>
+
+
+<p class="song-instruction">
+    Paste a YouTube link for the song you want.
+</p>
+
+<input
+    type="text"
+    id="youtubeLink"
+    class="youtube-input"
+    placeholder="Paste YouTube link here..."
+>
+
+<button
+    type="button"
+    id="loadSongButton"
+    class="load-song"
+>
+    Load Song 
+</button>
+
+<div id="musicPlayer" class="music-player hidden">
+
+    <p class="now-playing">
+        NOW PLAYING
+    </p>
+
+    <p id="selectedSong" class="selected-song">
+        No song selected
+    </p>
+
+    <iframe
+        id="youtubeFrame"
+        width="100%"
+        height="250"
+        src=""
+        title="YouTube music player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+    </iframe>
+
+</div>
+
+<input
+    type="hidden"
+    id="song"
+>
+
+<input
+    type="hidden"
+    id="videoId"
+>
+
+
+<div id="songResults"></div>
+
+<input type="hidden" id="song">
+
+<div id="selectedSong" class="selected-song hidden">
+    <p>Selected song 🎧</p>
+
+    <strong id="selectedSongTitle"></strong>
+    <small id="selectedSongArtist"></small>
+</div>
+
+            <button id="sendButton" class="send">
+                Send It
+            </button>
+
+            <div id="message"></div>
+
+<div id="thoughtCard" class="thought-card hidden">
+
+    <p class="card-label">UNSAID 💭</p>
+
+    <p id="cardThought" class="card-thought"></p>
+
+    <p id="cardFeeling" class="card-feeling"></p>
+
+    <div class="card-song">
+        🎧
+        <span id="cardSong"></span>
+    </div>
+
+    <p class="card-footer">
+        Some things are easier to say through a song.
+    </p>
+
+</div>
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

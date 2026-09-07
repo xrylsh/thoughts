@@ -1,0 +1,604 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #0f0f14;
+    color: white;
+
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+h1 {
+    font-size: 64px;
+    letter-spacing: 10px;
+
+    margin-bottom: 15px;
+}
+
+.tagline {
+    color: #aaa;
+    line-height: 1.6;
+
+    margin-bottom: 35px;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+
+    padding: 13px 24px;
+
+    background: white;
+    color: #111;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #999;
+    margin-bottom: 25px;
+}
+
+textarea {
+    width: 100%;
+    height: 180px;
+
+    padding: 18px;
+
+    border: 1px solid #333;
+    border-radius: 15px;
+
+    background: #191920;
+    color: white;
+
+    resize: none;
+
+    font-size: 16px;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #777;
+}
+
+#counter {
+    text-align: right;
+    color: #777;
+
+    font-size: 13px;
+
+    margin-top: 6px;
+}
+
+h3 {
+    margin-top: 25px;
+    margin-bottom: 12px;
+}
+
+.feelings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.feeling {
+    background: #191920;
+    color: #ddd;
+
+    border: 1px solid #333;
+}
+
+.feeling.selected {
+    background: white;
+    color: #111;
+}
+
+#song {
+    width: 100%;
+
+    padding: 15px;
+
+    border-radius: 12px;
+    border: 1px solid #333;
+
+    background: #191920;
+    color: white;
+
+    outline: none;
+
+    font-size: 15px;
+}
+
+.send {
+    margin-top: 25px;
+
+    padding: 15px 35px;
+
+    font-size: 16px;
+}
+
+#message {
+    margin-top: 18px;
+    color: #aaa;
+}
+
+.thought-card {
+    margin-top: 30px;
+
+    padding: 28px;
+
+    background: #191920;
+
+    border: 1px solid #333;
+
+    border-radius: 20px;
+
+    text-align: left;
+
+    animation: appear 0.5s ease;
+}
+
+.card-label {
+    color: #777;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+.card-thought {
+    font-size: 21px;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+.card-feeling {
+    color: #aaa;
+
+    margin-bottom: 15px;
+}
+
+.card-song {
+    padding: 14px;
+
+    background: #101016;
+
+    border-radius: 12px;
+
+    color: #ddd;
+}
+
+.card-footer {
+    margin-top: 20px;
+
+    color: #666;
+
+    font-size: 12px;
+
+    text-align: center;
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.song-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.song-option {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 15px;
+
+    background: #191920;
+    color: white;
+
+    border: 1px solid #333;
+    border-radius: 14px;
+
+    text-align: left;
+}
+
+.song-option span {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.song-option small {
+    color: #777;
+}
+
+.song-option.selected {
+    border-color: white;
+    background: #25252d;
+}
+
+body {
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 350px;
+    height: 350px;
+
+    background: #3b2f63;
+    filter: blur(120px);
+    opacity: 0.35;
+
+    top: -100px;
+    left: -100px;
+
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 300px;
+    height: 300px;
+
+    background: #632f4f;
+    filter: blur(120px);
+    opacity: 0.3;
+
+    bottom: -100px;
+    right: -100px;
+
+    z-index: -1;
+}
+
+/* Smooth entrance */
+
+.container {
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* Button animation */
+
+button {
+    transition: 
+        transform 0.2s ease,
+        background 0.2s ease,
+        border 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+.floating-thought {
+    position: fixed;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    white-space: nowrap;
+
+    max-width: 300px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    color: white;
+
+    opacity: 0.18;
+
+    font-size: 16px;
+
+    letter-spacing: 1px;
+
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
+/* LEFT → RIGHT */
+
+.from-left {
+    left: -350px;
+
+    animation-name: floatRight;
+}
+
+
+/* RIGHT → LEFT */
+
+.from-right {
+    right: -350px;
+
+    animation-name: floatLeft;
+}
+
+
+@keyframes floatRight {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(120vw);
+    }
+
+}
+
+
+@keyframes floatLeft {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-120vw);
+    }
+
+}
+
+/* ===============================
+   YOUTUBE MUSIC
+   =============================== */
+
+.song-instruction {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+
+.youtube-input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    outline: none;
+
+    margin-bottom: 10px;
+}
+
+
+.youtube-input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+
+.load-song {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    margin-bottom: 20px;
+}
+
+
+.music-player {
+    margin-top: 15px;
+    margin-bottom: 25px;
+
+    padding: 15px;
+
+    border-radius: 16px;
+
+    background: rgba(255,255,255,0.06);
+
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+
+.now-playing {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.5;
+
+    margin-bottom: 5px;
+}
+
+
+.selected-song {
+    font-size: 15px;
+
+    margin-bottom: 12px;
+}
+
+
+.music-player iframe {
+
+    width: 100%;
+
+    border-radius: 12px;
+
+    display: block;
+}
+
+
+.hidden {
+    display: none;
+}
+/* ======================================
+   UNSAID MUSIC
+====================================== */
+
+.song-instruction {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+
+#youtubeLink {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    outline: none;
+
+    margin-bottom: 10px;
+}
+
+
+#youtubeLink::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+
+#loadSongButton {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    margin-bottom: 20px;
+}
+
+
+.music-player {
+    margin-top: 15px;
+
+    margin-bottom: 25px;
+
+    padding: 15px;
+
+    border-radius: 16px;
+
+    background: rgba(255,255,255,0.06);
+
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+
+.now-playing {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.5;
+}
+
+
+.selected-song {
+    font-size: 15px;
+
+    margin-bottom: 12px;
+}
+
+
+#youtubeFrame {
+    width: 100%;
+
+    display: block;
+
+    border-radius: 12px;
+}
+
+
+.hidden {
+    display: none;
+}
