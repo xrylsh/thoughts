@@ -148,46 +148,33 @@ songOptions.forEach(function(button) {
 
 function loadFloatingThoughts() {
 
-    fetch("https://thoughts-backend-3aof.onrender.com/api/thoughts")
+   fetch("https://thoughts-backend-3aof.onrender.com/api/thoughts", {
 
-        .then(function(response) {
-            return response.json();
-        })
+    .then(function(response) {
+        return response.json();
+    })
 
-        .then(function(data) {
+    .then(function(data) {
 
-            data.forEach(function(item, index) {
+        data.forEach(function(item, index) {
 
-                const thought =
-                    document.createElement("div");
-
-                thought.className =
-                    "floating-thought";
-
-                thought.textContent =
-                    item.thought;
-
-                thought.style.animationDelay =
-                    (index * 2) + "s";
-
-                document.body.appendChild(thought);
-
-            });
-
-        })
-
-        .catch(function(error) {
-
-            console.error(
-                "Could not load floating thoughts:",
-                error
+            createFloatingThought(
+                item.thought,
+                index
             );
 
         });
+
+    })
+
+    .catch(function(error) {
+
+        console.error("Floating thoughts error:", error);
+
+    });
 }
 
 loadFloatingThoughts();
-
 
 function createFloatingThought(text, index) {
 
