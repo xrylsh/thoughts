@@ -125,6 +125,8 @@ sendButton.addEventListener("click", function() {
 
     message.textContent = "Your thought is now out there. 🕊️";
 
+});
+
 const songOptions = document.querySelectorAll(".song-option");
 
 songOptions.forEach(function(button) {
@@ -149,7 +151,7 @@ songOptions.forEach(function(button) {
 function loadFloatingThoughts() {
 
    fetch("https://thoughts-backend-3aof.onrender.com/api/thoughts", {
-
+    
     .then(function(response) {
         return response.json();
     })
