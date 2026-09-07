@@ -109,7 +109,7 @@ sendButton.addEventListener("click", function() {
     body: JSON.stringify({
         thought: thought.value,
         feeling: selectedFeeling.textContent,
-        song: song.value,
+        song: song.value
         videoId: videoIdInput.value
     })
 })
@@ -150,8 +150,8 @@ songOptions.forEach(function(button) {
 
 function loadFloatingThoughts() {
 
-   fetch("https://thoughts-backend-3aof.onrender.com/api/thoughts", {
-    
+    fetch("/api/thoughts")
+
     .then(function(response) {
         return response.json();
     })
