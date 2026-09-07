@@ -99,7 +99,7 @@ sendButton.addEventListener("click", function() {
 
     document.getElementById("thoughtCard").classList.remove("hidden");
 
-    fetch("https://thoughts-backend-3aof.onrender.com/api/thoughts")
+    fetch("/api/thoughts", {
     method: "POST",
 
     headers: {
