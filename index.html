@@ -1,45 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>UNSAID</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <main class="container">
 
-        <!-- HOME -->
-        <section id="home">
+    <!-- =====================================
+         AUTHENTICATION SCREEN
+    ====================================== -->
 
-            <h1>UNSAID</h1>
+    <section id="authScreen" class="auth-screen">
 
-            <p class="tagline">
-                Words you couldn't say.<br>
-                Songs that said them for you.
+        <div class="auth-card">
+
+            <div class="auth-close">
+                
+            </div>
+
+
+            <p class="auth-label">
+                UNSAID
             </p>
 
-            <button id="startButton">
+
+            <h1>
+                Join UNSAID
+            </h1>
+
+
+            <p class="auth-description">
+                Create an account to keep your
+                thoughts with you.
+            </p>
+
+
+            <!-- =============================
+                 SIGN UP
+            ============================== -->
+
+            <div class="auth-section">
+
+                <h2>
+                    Sign up
+                </h2>
+
+
+                <div class="input-row">
+
+                    <input
+                        type="email"
+                        id="signupEmail"
+                        placeholder="Email"
+                        autocomplete="email"
+                    >
+
+
+                    <input
+                        type="password"
+                        id="signupPassword"
+                        placeholder="Password"
+                        autocomplete="new-password"
+                    >
+
+
+                    <button
+                        id="signupButton"
+                        type="button"
+                    >
+                        Sign up
+                    </button>
+
+                </div>
+
+
+                <p
+                    id="signupMessage"
+                    class="auth-message"
+                ></p>
+
+            </div>
+
+
+
+            <div class="divider"></div>
+
+
+
+            <!-- =============================
+                 LOGIN
+            ============================== -->
+
+            <div class="auth-section">
+
+                <h2>
+                    Already have an account?
+                </h2>
+
+
+                <div class="input-row">
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="Email"
+                        autocomplete="email"
+                    >
+
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Password"
+                        autocomplete="current-password"
+                    >
+
+
+                    <button
+                        id="loginButton"
+                        type="button"
+                    >
+                        Log in
+                    </button>
+
+                </div>
+
+
+                <p
+                    id="loginMessage"
+                    class="auth-message"
+                ></p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         WRITER SCREEN
+    ====================================== -->
+
+    <main
+        id="writerScreen"
+        class="container hidden"
+    >
+
+
+        <!-- ACCOUNT -->
+
+        <div class="writer-topbar">
+
+            <span id="welcomeUser">
+                UNSAID
+            </span>
+
+
+            <button
+                id="logoutButton"
+                class="logout-button"
+                type="button"
+            >
+                Log out
+            </button>
+
+        </div>
+
+
+
+        <!-- HOME / WRITER -->
+
+        <section id="home">
+
+            <p class="small-title">
+                UNSAID
+            </p>
+
+
+            <h1>
+                is it better to speak or to die?
+            </h1>
+
+
+            <p class="tagline">
+                Songs that said them for you.
+            </p>
+            <button
+                id="startButton"
+                class="main-button"
+                type="button"
+            >
                 Write your thought
             </button>
 
         </section>
 
 
-        <!-- WRITE THOUGHT -->
-        <section id="writePage" class="hidden">
 
-            <h2>What's on your mind?</h2>
+        <!-- =====================================
+             WRITE PAGE
+        ====================================== -->
+
+        <section
+            id="writePage"
+            class="hidden"
+        >
+
+            <button
+                id="backButton"
+                class="back-button"
+                type="button"
+            >
+                ← Back
+            </button>
+
+
+            <h2>
+                What's on your mind?
+            </h2>
+
 
             <p class="subtitle">
                 Write the words you've never said.
             </p>
+
 
             <textarea
                 id="thought"
@@ -47,127 +251,216 @@
                 placeholder="I never told you that..."
             ></textarea>
 
-            <p id="counter">0 / 500</p>
 
-<!--Music Selection-->
-            <h3>Choose a feeling</h3>
+            <p id="counter">
+                0 / 500
+            </p>
+
+
+
+            <!-- FEELINGS -->
+
+            <h3>
+                Choose a feeling
+            </h3>
+
 
             <div class="feelings">
 
-                <button class="feeling"> missing</button>
+                <button
+                    class="feeling"
+                    type="button"
+                >
+                    missing
+                </button>
 
-                <button class="feeling"> mysb</button>
 
-                <button class="feeling"> can we try again?</button>
+                <button
+                    class="feeling"
+                    type="button"
+                >
+                    mysb
+                </button>
 
-                <button class="feeling"> regret</button>
 
-                <button class="feeling"> love</button>
+                <button
+                    class="feeling"
+                    type="button"
+                >
+                    can we try again?
+                </button>
 
-                <button class="feeling"> closure</button>
 
-                <button class="feeling"> hope</button>
+                <button
+                    class="feeling"
+                    type="button"
+                >
+                    regret
+                </button>
+
+
+                <button
+                    class="feeling"
+                    type="button"
+                >
+                    love
+                </button>
+
+
+                <button
+                    class="feeling"
+                    type="button"
+                >
+                    closure
+                </button>
+
+
+                <button
+                    class="feeling"
+                    type="button"
+                >
+                    hope
+                </button>
 
             </div>
 
 
-         <h3>Choose your song</h3>
+
+            <!-- YOUTUBE -->
+
+            <h3>
+                Choose your song
+            </h3>
 
 
-<p class="song-instruction">
-    Paste a YouTube link for the song you want.
-</p>
-
-<input
-    type="text"
-    id="youtubeLink"
-    class="youtube-input"
-    placeholder="Paste YouTube link here..."
->
-
-<button
-    type="button"
-    id="loadSongButton"
-    class="load-song"
->
-    Load Song 
-</button>
-
-<div id="musicPlayer" class="music-player hidden">
-
-    <p class="now-playing">
-        NOW PLAYING
-    </p>
-
-    <p id="selectedSong" class="selected-song">
-        No song selected
-    </p>
-
-    <iframe
-        id="youtubeFrame"
-        width="100%"
-        height="250"
-        src=""
-        title="YouTube music player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-    </iframe>
-
-</div>
-
-<input
-    type="hidden"
-    id="song"
->
-
-<input
-    type="hidden"
-    id="videoId"
->
+            <p class="song-instruction">
+                Paste a YouTube link for the song you want.
+            </p>
 
 
-<div id="songResults"></div>
+            <input
+                type="text"
+                id="youtubeLink"
+                class="youtube-input"
+                placeholder="Paste YouTube link here..."
+            >
 
-<input type="hidden" id="song">
 
-<div id="selectedSong" class="selected-song hidden">
-    <p>Selected song 🎧</p>
+            <button
+                type="button"
+                id="loadSongButton"
+                class="load-song"
+            >
+                Load Song
+            </button>
 
-    <strong id="selectedSongTitle"></strong>
-    <small id="selectedSongArtist"></small>
-</div>
 
-            <button id="sendButton" class="send">
+            <div
+                id="musicPlayer"
+                class="music-player hidden"
+            >
+
+                <p class="now-playing">
+                    NOW PLAYING
+                </p>
+
+
+                <p
+                    id="selectedSong"
+                    class="selected-song"
+                >
+                    No song selected
+                </p>
+
+
+                <iframe
+                    id="youtubeFrame"
+                    width="100%"
+                    height="250"
+                    src=""
+                    title="YouTube music player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+
+            <input
+                type="hidden"
+                id="song"
+            >
+
+
+            <input
+                type="hidden"
+                id="videoId"
+            >
+
+
+
+            <!-- SEND -->
+            <button
+                id="sendButton"
+                class="send"
+                type="button"
+            >
                 Send It
             </button>
 
+
             <div id="message"></div>
 
-<div id="thoughtCard" class="thought-card hidden">
 
-    <p class="card-label">UNSAID 💭</p>
 
-    <p id="cardThought" class="card-thought"></p>
+            <!-- CARD -->
 
-    <p id="cardFeeling" class="card-feeling"></p>
+            <div
+                id="thoughtCard"
+                class="thought-card hidden"
+            >
 
-    <div class="card-song">
-        🎧
-        <span id="cardSong"></span>
-    </div>
+                <p class="card-label">
+                    UNSAID 💭
+                </p>
 
-    <p class="card-footer">
-        Some things are easier to say through a song.
-    </p>
 
-</div>
+                <p
+                    id="cardThought"
+                    class="card-thought"
+                ></p>
+
+
+                <p
+                    id="cardFeeling"
+                    class="card-feeling"
+                ></p>
+
+
+                <div class="card-song">
+
+                    🎧
+
+                    <span id="cardSong"></span>
+
+                </div>
+
+
+                <p class="card-footer">
+                    Some things are easier to say through a song.
+                </p>
+
+            </div>
+
         </section>
 
     </main>
 
 
+
     <script src="script.js"></script>
 
 </body>
+
 </html>

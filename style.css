@@ -28,7 +28,7 @@ body {
 
 h1 {
     font-size: 64px;
-    letter-spacing: 10px;
+    letter-spacing: 3px;
 
     margin-bottom: 15px;
 }
@@ -601,4 +601,223 @@ button:active {
 
 .hidden {
     display: none;
+}
+
+
+/* ======================================
+   AUTH SCREEN
+====================================== */
+
+.auth-screen {
+    width: 90%;
+    max-width: 420px;
+    padding: 30px 0;
+    animation: fadeIn 0.8s ease;
+}
+
+.auth-card {
+    background: #191920;
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 28px;
+    text-align: left;
+}
+
+.auth-card h1 {
+    font-size: 32px;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+}
+
+.auth-card h2 {
+    font-size: 18px;
+    margin-bottom: 14px;
+}
+
+.auth-label {
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.auth-description {
+    color: #aaa;
+    margin-bottom: 24px;
+}
+
+.input-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-row input {
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    background: #101016;
+    color: white;
+    outline: none;
+    font-size: 15px;
+}
+
+.input-row input:focus {
+    border-color: #777;
+}
+
+.auth-message {
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 10px;
+    min-height: 18px;
+}
+
+.divider {
+    height: 1px;
+    background: #333;
+    margin: 24px 0;
+}
+
+.writer-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #aaa;
+    margin-bottom: 30px;
+    gap: 12px;
+}
+
+.logout-button {
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+.back-button {
+    margin-bottom: 20px;
+}
+
+
+/* ======================================
+   BUTTONS (smaller + softer)
+   Keep this section last so it overrides the older button rules.
+====================================== */
+
+button {
+    padding: 9px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    border-radius: 999px;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(255, 255, 255, 0.12);
+}
+
+button:active {
+    transform: scale(0.97);
+    box-shadow: none;
+}
+
+button:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 3px;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Main call to action */
+.main-button {
+    padding: 11px 26px;
+    font-size: 15px;
+}
+
+/* Send It */
+.send {
+    margin-top: 22px;
+    padding: 11px 30px;
+    font-size: 15px;
+}
+
+/* Feeling chips */
+.feeling {
+    padding: 7px 15px;
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #ccc;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.feeling:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: none;
+}
+
+.feeling.selected {
+    background: white;
+    color: #111;
+    border-color: white;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.25);
+}
+
+/* Load Song (ghost style) */
+#loadSongButton {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 18px;
+}
+
+#loadSongButton:hover {
+    background: rgba(255, 255, 255, 0.16);
+    box-shadow: none;
+}
+
+/* Back + Log out (ghost style) */
+.back-button,
+.logout-button {
+    padding: 6px 14px;
+    font-size: 13px;
+    background: transparent;
+    color: #ccc;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.back-button:hover,
+.logout-button:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    box-shadow: none;
+}
+
+/* Sign up / Log in */
+.input-row button {
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    button,
+    button:hover,
+    button:active {
+        transition: none;
+        transform: none;
+    }
 }
