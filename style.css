@@ -11,7 +11,9 @@ body {
     justify-content: center;
     align-items: center;
 
-    background: #0f0f14;
+    background:
+        linear-gradient(rgba(8, 8, 12, 0.42), rgba(8, 8, 12, 0.62)),
+        url("4cb94b9e4b6b26657bf6c0c3fb58149d.jpg") center center / cover fixed no-repeat;
     color: white;
 
     font-family: Arial, sans-serif;
@@ -819,5 +821,471 @@ button:disabled {
     button:active {
         transition: none;
         transform: none;
+    }
+}
+
+
+/* ======================================
+   TOP BAR
+====================================== */
+
+body {
+    align-items: flex-start;
+    padding-top: 72px;
+    padding-bottom: 24px;
+}
+
+/* margin:auto centers the content but lets tall pages scroll normally */
+.container,
+.auth-screen {
+    margin: auto;
+}
+
+/* the old email + log out row now lives in the account menu */
+.writer-topbar {
+    display: none;
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 80;
+
+    height: 56px;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    background: rgba(18, 18, 24, 0.38);
+    backdrop-filter: blur(18px) saturate(130%);
+    -webkit-backdrop-filter: blur(18px) saturate(130%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-top: none;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+.top-brand {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #ddd;
+}
+
+.top-nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-link {
+    padding: 7px 12px;
+    font-size: 14px;
+    background: transparent;
+    color: #b5b5bd;
+    border: none;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    transform: none;
+    box-shadow: none;
+}
+
+.nav-signin {
+    margin-left: 6px;
+    color: #111;
+    background: white;
+}
+
+.nav-signin:hover {
+    background: white;
+    color: #111;
+    box-shadow: 0 4px 14px rgba(255, 255, 255, 0.18);
+}
+
+/* account */
+
+.account-wrap {
+    position: relative;
+    margin-left: 6px;
+}
+
+.account-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px 4px 4px;
+    font-size: 14px;
+    background: transparent;
+    color: #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.account-button:hover {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+    transform: none;
+}
+
+.account-initial {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    background: white;
+    color: #111;
+}
+
+.account-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+
+    width: 240px;
+    padding: 16px;
+
+    background: #191920;
+    border: 1px solid #2a2a33;
+    border-radius: 14px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+    text-align: left;
+
+    display: none;
+}
+
+.account-menu.open {
+    display: block;
+}
+
+.account-caption {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #777;
+    margin-bottom: 6px;
+}
+
+.account-menu #welcomeUser {
+    display: block;
+    font-size: 14px;
+    color: #ddd;
+    word-break: break-all;
+}
+
+.account-menu .logout-button {
+    width: 100%;
+    margin-top: 14px;
+}
+
+/* modal */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 72px 16px 16px;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.info-modal {
+    position: relative;
+
+    width: 100%;
+    max-width: 460px;
+    max-height: 100%;
+    overflow-y: auto;
+
+    padding: 26px 26px 22px;
+
+    background: #14141b;
+    border: 1px solid #2a2a33;
+    border-radius: 20px;
+    color: #ddd;
+    text-align: left;
+
+    transform: translateY(12px);
+    transition: transform 0.25s ease;
+}
+
+.modal-overlay.open .info-modal {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    font-size: 13px;
+
+    background: transparent;
+    color: #ccc;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    box-shadow: none;
+}
+
+.modal-pane {
+    display: none;
+}
+
+.modal-pane.active {
+    display: block;
+}
+
+.modal-title {
+    font-size: 24px;
+    margin: 0 40px 14px 0;
+    color: white;
+}
+
+.info-modal h3 {
+    margin: 22px 0 10px;
+    font-size: 16px;
+    color: white;
+}
+
+.info-modal p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.info-modal ol,
+.info-modal ul {
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #aaa;
+}
+
+.info-modal strong {
+    color: #ddd;
+    font-weight: 600;
+}
+
+.info-modal a {
+    color: #ddd;
+    text-underline-offset: 3px;
+}
+
+.info-modal a:hover {
+    color: white;
+}
+
+.hotline-list {
+    list-style: none;
+    padding-left: 0 !important;
+    margin-bottom: 10px;
+}
+
+.info-modal details {
+    padding: 10px 0;
+    border-bottom: 1px solid #25252d;
+}
+
+.info-modal summary {
+    cursor: pointer;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.info-modal details p {
+    margin-top: 8px;
+}
+
+.modal-important {
+    margin-top: 22px;
+    padding: 4px 16px 14px;
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid #2a2a33;
+    border-radius: 14px;
+}
+
+.report-text {
+    width: 100%;
+    height: 110px;
+    padding: 12px;
+    margin-bottom: 10px;
+
+    font-size: 14px;
+    border-radius: 12px;
+    background: #101016;
+    border: 1px solid #333;
+}
+
+.report-button {
+    padding: 8px 18px;
+    font-size: 13px;
+}
+
+.report-message {
+    margin-top: 10px;
+}
+
+.modal-footer {
+    margin-top: 22px;
+    font-size: 12px !important;
+    color: #666 !important;
+    text-align: center;
+}
+
+/* small screens */
+
+@media (max-width: 520px) {
+    .top-bar {
+        padding: 0 12px;
+    }
+
+    .top-brand {
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+
+    .nav-link {
+        padding: 6px 9px;
+        font-size: 13px;
+    }
+
+    .account-label {
+        display: none;
+    }
+
+    .account-button {
+        padding: 4px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modal-overlay,
+    .info-modal {
+        transition: none;
+    }
+}
+
+
+/* ======================================
+   AUTH: one form at a time
+====================================== */
+
+.auth-section h2,
+.divider {
+    display: none;
+}
+
+.auth-section {
+    animation: fadeIn 0.4s ease;
+}
+
+.auth-switch {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #aaa;
+    text-align: center;
+}
+
+.auth-switch-link {
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    color: white;
+    font-size: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.auth-switch-link:hover {
+    background: none;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* ======================================
+   GLASSMORPHISM
+   ====================================== */
+
+.container,
+.auth-screen {
+    position: relative;
+}
+
+.auth-card,
+.thought-card {
+    background: rgba(20, 20, 28, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px) saturate(125%);
+    -webkit-backdrop-filter: blur(18px) saturate(125%);
+}
+
+#thought,
+#song,
+#youtubeLink,
+.input-row input,
+.report-text {
+    background: rgba(10, 10, 16, 0.32);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.feeling,
+.song-option,
+.music-player,
+.account-menu,
+.info-modal,
+.modal-important {
+    background: rgba(20, 20, 28, 0.38);
+    border-color: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(16px) saturate(125%);
+    -webkit-backdrop-filter: blur(16px) saturate(125%);
+}
+
+.account-button {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+@media (max-width: 520px) {
+    .top-bar {
+        background: rgba(18, 18, 24, 0.48);
     }
 }
